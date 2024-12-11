@@ -24,7 +24,7 @@ public class BatchJobRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         //Job 가져오기
         String jobName = args.getOptionValues("job.name") != null ? args.getOptionValues("job.name").get(0) : null;
-
+        System.out.println(jobName);
         if(jobName==null || jobName.isEmpty()) {
             System.out.println("No job name provided. Exiting Application");
             return;
