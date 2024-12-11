@@ -38,7 +38,7 @@ public class validatedParamJobConfig {
 
     @Bean
     public Step validatedParamStep(Tasklet validatedParamTasklet) {
-        return new StepBuilder("helloWorldStep", jobRepository)
+        return new StepBuilder("validatedParamStep", jobRepository)
                 .tasklet(validatedParamTasklet, transactionManager)
                 .build();
     }
