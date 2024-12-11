@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
+
 /**
  * desc : 파일 이름 파라미터 전달 그리고 검증
  * run : --job.name=validatedParamJob -fileName=test.csv
@@ -41,6 +42,7 @@ public class validatedParamJobConfig {
                 .tasklet(validatedParamTasklet, transactionManager)
                 .build();
     }
+
     @Bean
     public Tasklet validatedParamTasklet(@Value("#{jobParameters['fileName']}") String fileName) {
         return new Tasklet() {
@@ -52,6 +54,5 @@ public class validatedParamJobConfig {
             }
         };
     }
-
 
 }
